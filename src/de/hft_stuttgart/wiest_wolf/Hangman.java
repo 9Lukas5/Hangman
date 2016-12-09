@@ -101,6 +101,7 @@ public class Hangman
     		if(!foundLetter)
     		{
     			trials--;
+                        System.out.println(hangmanTexture[trials]);
     		}
     		if(trials <= 0)
     		{
