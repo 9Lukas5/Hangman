@@ -71,16 +71,29 @@ public class Hangman
                 temp = in.nextLine().toUpperCase();
 
                 if (temp.isEmpty()) continue loop;
-
-                if(temp.equals(word))
+                
+                if (temp.length() > 1)
                 {
-                    System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
-                    break loop;
+                    if(temp.equals(word))
+                    {
+                        System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
+                        break loop;
+                    }
+                    
+                    trials--;
+                    System.out.println(hangmanTexture[trials]);
+                    
+                    if (trials <= 0)
+                    {
+                        System.out.println("Das gesuchte Wort war: " + word);
+                        break loop;
+                    }
+                    
+                    continue loop;
+                    
                 }
-                else
-                {
-                    letter = temp.charAt(0);
-                }
+                
+                letter = temp.charAt(0);
 
                 if(checked.contains(letter))
                 {
