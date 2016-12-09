@@ -1,8 +1,10 @@
 package de.hft_stuttgart.wiest_wolf;
 
+
 // imports
 import java.util.Random;
 import java.util.Scanner;
+import java.util.LinkedList;
 
 /**
  *
@@ -16,6 +18,16 @@ public class Hangman
     public static void main(String[] args)
     {
         // TODO code application logic here
+    	//Lokale Variablen
+    	String word;
+    	String choice;
+    	LinkedList<Character> checked = new LinkedList<>();
+    	char letter;
+    	char[] guessed;
+    	boolean foundLetter;
+    	int trials;
+    	char[][][]hangmanTexture;
+    	
     }
     
     public static int randInt(int min, int max)
