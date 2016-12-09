@@ -56,6 +56,8 @@ public class Hangman
     		guessed[i] = '_';
     	}
     	
+        // get the Textures for the different states the hangman can have
+        hangmanTexture = initHangman();
     	
     	loop:
     	while(true)
