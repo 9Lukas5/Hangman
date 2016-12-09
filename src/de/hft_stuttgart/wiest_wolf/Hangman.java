@@ -124,6 +124,7 @@ public class Hangman
                 }
                 if(trials <= 0)
                 {
+                    System.out.println("Das gesuchte Wort war: " + word);
                     break;
                 }
                 for(char i: guessed)
