@@ -145,12 +145,7 @@ public class Hangman
     	}while(false);
     }
     
-    private static void reset_data(String word, String choice, LinkedList<Character> checked,char letter, char[] guessed, boolean foundLetter, int trials, String reset) 
-    {
-				
-	}
-
-	public static int randInt(int min, int max)
+    public static int randInt(int min, int max)
     {
         Random rand = new Random();
         int randomNum = rand.nextInt((max - min) + 1) + min;
