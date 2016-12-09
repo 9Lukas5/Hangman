@@ -16,112 +16,112 @@ public class Hangman
     
     public static void main(String[] args)
     {
-        // TODO code application logic here
-    	//Lokale Variablen
-    	String word = "";
-    	String choice;
-    	LinkedList<Character> checked = new LinkedList<>();
-    	char letter = ' ';
-    	char[] guessed;
-    	boolean foundLetter;
-    	int trials = 8;
-    	String []hangmanTexture;
-    	
-    	menu:
-    	do
-    	{
-            System.out.print("eigenes Wort eingeben? (y/n)");
-            choice = in.nextLine();
+            // TODO code application logic here
+            //Lokale Variablen
+            String word = "";
+            String choice;
+            LinkedList<Character> checked = new LinkedList<>();
+            char letter = ' ';
+            char[] guessed;
+            boolean foundLetter;
+            int trials = 8;
+            String []hangmanTexture;
 
-            switch (choice)
+            menu:
+            do
             {
-            case "y":
-            case "Y": 	System.out.print("bitte Wort eingeben: ");
-                        word=in.nextLine();
-                        if(word.isEmpty())
-                        {
-                            System.out.println("Leere eingabe unzulaessig.");
-                            continue menu;
-                        }
-                    break menu;
-            case "n":
-            case "N":	System.out.println("Wort wird ausgewaehlt...");
-                        word = getWordFromFile();
-                    break menu;
-            }
-    		
-    	}while(true);
-    	
-    	word = word.toUpperCase();
-    	guessed = new char[word.length()];
-    	for(int i = 0; i < guessed.length; i++)
-    	{
-            guessed[i] = '_';
-    	}
-    	
-        // get the Textures for the different states the hangman can have
-        hangmanTexture = initHangman();
-    	
-    	loop:
-    	while(true)
-    	{
-            foundLetter = false;
-            String temp;
-            System.out.print("bitte Buchstabe eingeben: ");
-            temp = in.nextLine().toUpperCase();
-            
-            if (temp.isEmpty()) continue loop;
-            
-            if(temp.equals(word))
-            {
-                System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
-                System.exit(0);
-            }
-            else
-            {
-                letter = temp.charAt(0);
-            }
+                System.out.print("eigenes Wort eingeben? (y/n)");
+                choice = in.nextLine();
 
-            if(checked.contains(letter))
-            {
-                System.out.print("Buchstabe bereits abgefragt.");
-                continue loop;
-            }
-            else
-            {
-                checked.add(letter);
-            }
-
-            for(int i = 0; i < word.length(); i++)
-            {
-                if(letter == word.charAt(i))
+                switch (choice)
                 {
-                    foundLetter = true;
-                    guessed[i] = letter;
+                case "y":
+                case "Y": 	System.out.print("bitte Wort eingeben: ");
+                            word=in.nextLine();
+                            if(word.isEmpty())
+                            {
+                                System.out.println("Leere eingabe unzulaessig.");
+                                continue menu;
+                            }
+                        break menu;
+                case "n":
+                case "N":	System.out.println("Wort wird ausgewaehlt...");
+                            word = getWordFromFile();
+                        break menu;
                 }
 
-                System.out.print(guessed[i]);
-            }
-            System.out.println();
+            }while(true);
 
-            if(!foundLetter)
+            word = word.toUpperCase();
+            guessed = new char[word.length()];
+            for(int i = 0; i < guessed.length; i++)
             {
-                trials--;
-                System.out.println(hangmanTexture[trials]);
+                guessed[i] = '_';
             }
-            if(trials <= 0)
+
+            // get the Textures for the different states the hangman can have
+            hangmanTexture = initHangman();
+
+            loop:
+            while(true)
             {
-                break;
-            }
-            for(char i: guessed)
-            {
-                if(i == '_')
+                foundLetter = false;
+                String temp;
+                System.out.print("bitte Buchstabe eingeben: ");
+                temp = in.nextLine().toUpperCase();
+
+                if (temp.isEmpty()) continue loop;
+
+                if(temp.equals(word))
                 {
+                    System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
+                    System.exit(0);
+                }
+                else
+                {
+                    letter = temp.charAt(0);
+                }
+
+                if(checked.contains(letter))
+                {
+                    System.out.print("Buchstabe bereits abgefragt.");
                     continue loop;
                 }
+                else
+                {
+                    checked.add(letter);
+                }
+
+                for(int i = 0; i < word.length(); i++)
+                {
+                    if(letter == word.charAt(i))
+                    {
+                        foundLetter = true;
+                        guessed[i] = letter;
+                    }
+
+                    System.out.print(guessed[i]);
+                }
+                System.out.println();
+
+                if(!foundLetter)
+                {
+                    trials--;
+                    System.out.println(hangmanTexture[trials]);
+                }
+                if(trials <= 0)
+                {
+                    break;
+                }
+                for(char i: guessed)
+                {
+                    if(i == '_')
+                    {
+                        continue loop;
+                    }
+                }
+                break;
             }
-            break;
-    	}
     }
     
     public static int randInt(int min, int max)
