@@ -2,12 +2,8 @@ package de.hft_stuttgart.wiest_wolf;
 
 
 // imports
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.LinkedList;
+import java.io.*;
+import java.util.*;
 
 /**
  *
