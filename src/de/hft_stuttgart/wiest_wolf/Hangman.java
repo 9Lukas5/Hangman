@@ -31,22 +31,21 @@ public class Hangman
     	do
     	{
             System.out.print("eigenes Wort eingeben? (y/n)");
-            choice = in.next();
+            choice = in.nextLine();
 
             switch (choice)
             {
             case "y":
             case "Y": 	System.out.print("bitte Wort eingeben: ");
                         word=in.next();
-                    break;
+                    break menu;
             case "n":
             case "N":	System.out.print("Wort wird ausgewaehlt...");
                         word = getWordFromFile();
-                    break;
-            default:	continue menu;
+                    break menu;
             }
     		
-    	}while(false);
+    	}while(true);
     	
     	word = word.toUpperCase();
     	guessed = new char[word.length()];
