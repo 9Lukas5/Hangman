@@ -58,6 +58,7 @@ public class Hangman
     	
     	
     	
+    	
     }
     
     public static int randInt(int min, int max)
@@ -68,6 +69,11 @@ public class Hangman
     }
     
     public static String getWordFromFile()
+    {
+    	
+    }
+    
+    public static void initHangman(String[] texture)
     {
     	
     }
