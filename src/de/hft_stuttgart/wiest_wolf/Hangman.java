@@ -123,7 +123,7 @@ public class Hangman
                 break;
             }
             
-            System.out.print("\n\n<willst du nochmal spielen? (y/n): ");
+            System.out.print("\n\nwillst du nochmal spielen? (y/n): ");
             choice = in.nextLine();
             
             switch (choice)
