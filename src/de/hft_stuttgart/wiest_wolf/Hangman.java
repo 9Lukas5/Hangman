@@ -19,7 +19,7 @@ public class Hangman
     {
         // TODO code application logic here
     	//Lokale Variablen
-    	String word;
+    	String word = "";
     	String choice;
     	LinkedList<Character> checked = new LinkedList<>();
     	char letter;
@@ -48,6 +48,15 @@ public class Hangman
     		}
     		
     	}while(false);
+    	
+    	word = word.toUpperCase();
+    	guessed = new char[word.length()];
+    	for(int i = 0; i < guessed.length; i++)
+    	{
+    		guessed[i] = '_';
+    	}
+    	
+    	
     	
     }
     
