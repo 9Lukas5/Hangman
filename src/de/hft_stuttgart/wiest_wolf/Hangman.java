@@ -37,7 +37,7 @@ public class Hangman
             {
             case "y":
             case "Y": 	System.out.print("bitte Wort eingeben: ");
-                        word=in.next();
+                        word=in.nextLine();
                     break menu;
             case "n":
             case "N":	System.out.print("Wort wird ausgewaehlt...");
@@ -63,7 +63,7 @@ public class Hangman
             foundLetter = false;
             String temp;
             System.out.print("bitte Buchstabe eingeben: ");
-            temp = in.next().toUpperCase();
+            temp = in.nextLine().toUpperCase();
 
             if(temp.equals(word))
             {
@@ -95,6 +95,7 @@ public class Hangman
 
                 System.out.print(guessed[i]);
             }
+            System.out.println();
 
             if(!foundLetter)
             {
