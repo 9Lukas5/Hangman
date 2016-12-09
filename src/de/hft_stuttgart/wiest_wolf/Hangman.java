@@ -22,4 +22,9 @@ public class Hangman
         int randomNum = rand.nextInt((max - min) + 1) + min;
         return randomNum;
     }
+    
+    public static String getWordFromFile()
+    {
+    	
+    }
 }
