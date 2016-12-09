@@ -22,7 +22,7 @@ public class Hangman
     	String word = "";
     	String choice;
     	LinkedList<Character> checked = new LinkedList<>();
-    	char letter;
+    	char letter = ' ';
     	char[] guessed;
     	boolean foundLetter;
     	int trials;
@@ -57,7 +57,64 @@ public class Hangman
     	}
     	
     	
-    	
+    	loop:
+    	while(true)
+    	{
+    		foundLetter = false;
+    		String temp;
+    		System.out.print("bitte Buchstabe eingeben: ");
+    		temp = in.next().toUpperCase();
+    		
+    		if(temp.equals(word))
+    		{
+    			System.out.print("Du hast es erraten ;) das Wort ist" + word);
+    			System.exit(0);
+    		}
+    		else
+    		{
+    			letter = temp.charAt(0);
+    		}
+    		
+    		if(checked.contains(letter))
+    		{
+    			System.out.print("Buchstabe bereits abgefragt.");
+    			continue loop;
+    		}
+    		else
+    		{
+    			checked.add(letter);
+    		}
+    		
+    		for(int i = 0; i < word.length(); i++)
+    		{
+    			if(letter == word.charAt(i))
+    			{
+    				foundLetter = true;
+    				guessed[i] = letter;
+    			}
+    			
+    			System.out.print(guessed[i]);
+    		}
+    		
+    		if(!foundLetter)
+    		{
+    			trials--;
+    		}
+    		if(trials <= 0)
+    		{
+    			break;
+    		}
+    		for(char i: guessed)
+    		{
+    			if(i == '_')
+    			{
+    				continue loop;
+    			}
+    			
+    		}
+    		break;
+    		
+    	}
     	
     }
     
