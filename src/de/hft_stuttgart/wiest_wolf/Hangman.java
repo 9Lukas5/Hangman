@@ -75,7 +75,7 @@ public class Hangman
                 if(temp.equals(word))
                 {
                     System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
-                    System.exit(0);
+                    break loop;
                 }
                 else
                 {
