@@ -38,6 +38,11 @@ public class Hangman
             case "y":
             case "Y": 	System.out.print("bitte Wort eingeben: ");
                         word=in.nextLine();
+                        if(word.isEmpty())
+                        {
+                        	System.out.println("Leere eingabe unzulaessig.");
+                        	continue menu;
+                        }
                     break menu;
             case "n":
             case "N":	System.out.println("Wort wird ausgewaehlt...");
