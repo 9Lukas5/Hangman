@@ -40,8 +40,8 @@ public class Hangman
                         word=in.nextLine();
                         if(word.isEmpty())
                         {
-                        	System.out.println("Leere eingabe unzulaessig.");
-                        	continue menu;
+                            System.out.println("Leere eingabe unzulaessig.");
+                            continue menu;
                         }
                     break menu;
             case "n":
