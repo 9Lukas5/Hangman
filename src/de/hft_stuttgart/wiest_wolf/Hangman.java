@@ -26,7 +26,7 @@ public class Hangman
     	char[] guessed;
     	boolean foundLetter;
     	int trials = 8;
-    	char[]hangmanTexture;
+    	String []hangmanTexture;
     	
     	menu:
     	do
