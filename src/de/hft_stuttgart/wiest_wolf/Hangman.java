@@ -25,7 +25,7 @@ public class Hangman
     	char letter = ' ';
     	char[] guessed;
     	boolean foundLetter;
-    	int trials;
+    	int trials = 8;
     	char[]hangmanTexture;
     	
     	menu:
