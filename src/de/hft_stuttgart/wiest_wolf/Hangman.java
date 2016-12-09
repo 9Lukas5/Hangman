@@ -26,7 +26,7 @@ public class Hangman
     	char[] guessed;
     	boolean foundLetter;
     	int trials;
-    	char[][][]hangmanTexture;
+    	char[]hangmanTexture;
     	
     	menu:
     	do
