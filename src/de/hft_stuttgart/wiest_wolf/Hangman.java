@@ -122,6 +122,24 @@ public class Hangman
                 }
                 break;
             }
+            
+            System.out.print("\n\n<willst du nochmal spielen? (y/n): ");
+            choice = in.nextLine();
+            
+            switch (choice)
+            {
+                case "y":
+                case "Y":   System.out.println("na dann, viel Spaß!");
+                            break;
+                            
+                case "n":
+                case "N":   System.out.println("auf wiedersehen, bis zum naechsten mal!");
+                            break init;
+                            
+                default :   System.out.println("Wir werten das jetzt mal als nein.");
+                            break init;
+                
+            }
         }
     }
     
