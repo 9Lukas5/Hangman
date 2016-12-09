@@ -16,6 +16,8 @@ public class Hangman
     
     public static void main(String[] args)
     {
+        init: while (true)
+        {
             // TODO code application logic here
             //Lokale Variablen
             String word = "";
@@ -27,8 +29,7 @@ public class Hangman
             int trials = 8;
             String []hangmanTexture;
 
-            menu:
-            do
+            menu: do
             {
                 System.out.print("eigenes Wort eingeben? (y/n)");
                 choice = in.nextLine();
@@ -62,8 +63,7 @@ public class Hangman
             // get the Textures for the different states the hangman can have
             hangmanTexture = initHangman();
 
-            loop:
-            while(true)
+            loop: while(true)
             {
                 foundLetter = false;
                 String temp;
@@ -122,6 +122,7 @@ public class Hangman
                 }
                 break;
             }
+        }
     }
     
     public static int randInt(int min, int max)
