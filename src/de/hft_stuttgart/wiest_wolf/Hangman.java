@@ -28,6 +28,27 @@ public class Hangman
     	int trials;
     	char[][][]hangmanTexture;
     	
+    	menu:
+    	do
+    	{
+    		System.out.print("eigenes Wort eingeben? (y/n)");
+    		choice = in.next();
+    		
+    		switch (choice)
+    		{
+    		case "y":
+    		case "Y": 	System.out.print("bitte Wort eingeben: ");
+    					word=in.next();
+    			break;
+    		case "n":
+    		case "N":	System.out.print("Wort wird ausgewählt...");
+    					word = getWordFromFile();
+    			break;
+    		default:	continue menu;
+    		}
+    		
+    	}while(false);
+    	
     }
     
     public static int randInt(int min, int max)
