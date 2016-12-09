@@ -27,7 +27,6 @@ public class Hangman
     	int trials = 8;
     	String []hangmanTexture;
     	
-    	menu:
     	do
     	{
             System.out.print("eigenes Wort eingeben? (y/n)");
