@@ -2,6 +2,9 @@ package de.hft_stuttgart.wiest_wolf;
 
 
 // imports
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.LinkedList;
@@ -130,7 +133,38 @@ public class Hangman
     
     public static String getWordFromFile()
     {
-    	
+    	// local vars
+        BufferedReader br;
+        LinkedList <String> words = new LinkedList<>();
+        int random;
+        
+        try
+        {
+            // loop variables
+            String line;
+            
+            br = new BufferedReader (new InputStreamReader(new FileInputStream("values.conf")));
+        
+        
+        while (true)
+        {
+            if ((line = br.readLine()) == null)
+            {
+                break;
+            }
+            
+            if (line.length() > 3) words.add(line);
+        }
+        br.close();
+        
+        } catch (Exception e)
+        {
+            return "FILENOTFOUNDERROR";
+        }
+        
+        random = randInt(0, words.size() - 1);
+        
+        return words.get(random);
     }
     
     public static String[] initHangman()
