@@ -40,7 +40,7 @@ public class Hangman
                         word=in.nextLine();
                     break menu;
             case "n":
-            case "N":	System.out.print("Wort wird ausgewaehlt...");
+            case "N":	System.out.println("Wort wird ausgewaehlt...");
                         word = getWordFromFile();
                     break menu;
             }
