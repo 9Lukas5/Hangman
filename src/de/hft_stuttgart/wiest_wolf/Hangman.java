@@ -64,7 +64,9 @@ public class Hangman
             String temp;
             System.out.print("bitte Buchstabe eingeben: ");
             temp = in.nextLine().toUpperCase();
-
+            
+            if (temp.isEmpty()) continue loop;
+            
             if(temp.equals(word))
             {
                 System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
