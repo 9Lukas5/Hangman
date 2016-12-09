@@ -126,28 +126,35 @@ public class Hangman
 	            break;
 	    	}
 	        
-	        System.out.print("\n\n<willst du nochmal spielen? (y/n)");
-	        reset = in.nextLine();
+	        System.out.print("\n\nwillst du nochmal spielen? (y/n)");
+	        reset = in.next();
 			switch (reset)
             {
 	            case "y":
 	            case "Y":	System.out.print("na dann, viel Spass!"); 
-	            			reset_data();
+	            			reset_data(word, choice, checked, letter,  foundLetter,  trials, reset);
 	            			for(int i = 0; i<1000; i++)
 	            				System.out.println();
 	            			continue restart;
-	            case "n":
+			case "n":
 	            case "N":	System.out.print("auf wiedersehen, bis zum naechsten mal!");
-	                    break;
+	                    break restart;
 	            default:	System.out.print("Wir werten das jetzt mal als ein nein.");
             }
 	        
     	}while(false);
     }
     
-    private static void reset_data(String word, String choice, LinkedList<Character> checked,char letter, char[] guessed, boolean foundLetter, int trials, String reset) 
+    private static void reset_data(String word, String choice, LinkedList<Character> checked,char letter, boolean foundLetter, int trials, String reset) 
     {
-				
+    	word = "";
+    	choice = "";
+    	checked.clear();
+    	letter = ' ';
+    	foundLetter = false;
+    	trials = 8;
+    	reset = "";
+    	
 	}
 
 	public static int randInt(int min, int max)
