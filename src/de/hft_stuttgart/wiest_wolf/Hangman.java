@@ -41,7 +41,7 @@ public class Hangman
     					word=in.next();
     			break;
     		case "n":
-    		case "N":	System.out.print("Wort wird ausgew�hlt...");
+    		case "N":	System.out.print("Wort wird ausgewaehlt...");
     					word = getWordFromFile();
     			break;
     		default:	continue menu;
