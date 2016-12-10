@@ -177,37 +177,39 @@ public class Hangman
     public static String getWordFromFile()
     {
     	// local vars
-        BufferedReader br;
-        LinkedList <String> words = new LinkedList<>();
-        int random;
+        BufferedReader br;                              // bufferedReader um von der Datei zu lesen
+        LinkedList <String> words = new LinkedList<>(); // LinkedList, in die die Worte/Saetze zum raten aufgenommen werden
+        int random;                                     // wird spaeter mit passender Zufallszahl gefuellt, um aus den moeglichkeiten Zufaellig zu waehlen
         
+        // try-catch, da beim oeffnen einer Datei fehler auftreten koennten.
         try
         {
             // loop variables
-            String line;
+            String line;    // temporaerer String, wird nur als zwischenspeicher beim einlesen genutzt
             
+                            // oeffne Datei values.conf im ausfuehrungsverzeichnis
             br = new BufferedReader (new InputStreamReader(new FileInputStream("values.conf")));
         
         
         while (true)
         {
             if ((line = br.readLine()) == null)
-            {
+            { // falls Dateiende erreicht ist, hoere auf einzulesen
                 break;
             }
             
-            if (line.length() > 3) words.add(line);
+            if (line.length() > 3) words.add(line); // falls die eingelesene Zeile mehr als 3 Zeichen hat, fuege sie zur Liste der Moeglichkeiten hinzu
         }
-        br.close();
+        br.close();         // schließe bufferedReader
         
         } catch (Exception e)
-        {
-            return "FILENOTFOUNDERROR";
+        { // bei einer Exception gehen wir davon aus es gab keine values.conf Datei, und geben als Wort mit dem gespielt wird, einfach File Not Found Error zurueck
+            return "FILE NOT FOUND ERROR";
         }
         
-        random = randInt(0, words.size() - 1);
+        random = randInt(0, words.size() - 1);  // generiere zufaelligen Zahl zwischen 0 und letztem Index der aufgenommenen Moeglichkeiten
         
-        return words.get(random);
+        return words.get(random);               // gebe das zufaellig ausgewaehlte zurueck ins Spiel
     }
     
     public static String[] initHangman()
