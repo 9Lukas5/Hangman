@@ -212,6 +212,13 @@ public class Hangman
         return words.get(random);               // gebe das zufaellig ausgewaehlte zurueck ins Spiel
     }
     
+    /**
+     * Diese Methode erstellt ein String-Array, von der Groeße der Moeglichen Fehlschlaege fuer Hangman (8-Stueck).
+     * Fuer jeden Fehlschlag gibt es eine andere Figur, die im jeweiligen Index gespeichert wird.
+     * Im Spiel muss dann spaeter nur der entsprechende Index auf die Konsole ausgegeben werden.
+     * 
+     * @return gibt das in dieser Methode erstellte String-Array zurueck ans Spiel
+     */
     public static String[] initHangman()
     {
     	// local vars
