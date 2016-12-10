@@ -4,6 +4,7 @@
       If you chose to use an own word, but then entered an empty one, you where stuck in an endless loop.
     * in-game if you accidentally entered an empty character to guess, the program crashed
     * #6 The fully unguessed String get's printed before you enter the first letter or guess
+    * #7 If you enter an own String, the console prints 1000 empty lines, that the other players searching don't see it
 
 * Enhancements:
     * #2 The game can now differentiate if a word or a letter was entered to guess.  
