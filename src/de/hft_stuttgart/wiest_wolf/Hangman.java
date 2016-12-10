@@ -17,23 +17,25 @@ import java.util.*;
  */
 public class Hangman
 {
+    // global variables
     public static Scanner in = new Scanner(System.in);
     
     public static void main(String[] args)
     {
+        // dauerschleife um gesamtes main, da am Ende, falls nochmal gespielt werden soll, auch der Deklarationsblock nochmals durchlaufen werden muss
         init: while (true)
         {
-            // TODO code application logic here
-            //Lokale Variablen
-            String word = "";
-            String choice;
-            LinkedList<Character> checked = new LinkedList<>();
-            char letter = ' ';
-            char[] guessed;
-            boolean foundLetter;
-            int trials = 8;
-            String []hangmanTexture;
-
+            // locale variables
+            String word = "";           // enthaelt spaeter das Wort das gesucht wird
+            String choice;              // zum zwischenspeichern einer Entscheidung von Nutzerseite zur Auswertung der Wahl in einem Switch-Case Block
+            LinkedList<Character> checked = new LinkedList<>(); // An die LinkedList wird im Verlauf des Spiels jeder Buchstabe, der geraten wird ans Ende der Liste gehaengt. Somit sind doppelte abfragen ausgeschlossen.
+            char letter = ' ';          // Buchstabe den der Nutzer raten will
+            char[] guessed;             // Char-Array fuer den Ratefortschritt. Zu Beginn mit Unterstrichen gefuellt, je mehr Buchstaben gefunden wurden, desto mehr Unterstriche werden durch Buchstaben ersetzt
+            boolean foundLetter;        // Boolean um bei der Suche ob der geratene Buchstabe im Wort enthalten ist festzuhalten, dass einer gefunden wurde
+            int trials = 8;             // man hat 8 moegliche Fehlschlaege, sind alle aufgebraucht, dann hat man verloren
+            String[] hangmanTexture;    // hier wird die Textur fuer die 8 verschiedenen Galgenmaennchen Zustaende gespeichert. Bei jedem Fehlschlag wird die entsprechend passende Optik ausgegeben.
+            
+            // dauerschleife um Menu, wird nur bei zulaessiger Auswahl gebrochen
             menu: do
             {
                 System.out.print("eigenes Wort eingeben? (y/n)");
@@ -41,60 +43,62 @@ public class Hangman
 
                 switch (choice)
                 {
-                case "y":
-                case "Y": 	System.out.print("bitte Wort eingeben: ");
+                case "y":   // Im Fall von yes, wird ein eigenes Wort eingelesen, dass dann die anderen Raten muessen
+                case "Y":   System.out.print("bitte Wort eingeben: ");
                             word=in.nextLine();
-                            if(word.isEmpty())
+                            if(word.isEmpty())  // eine leere Eingabe ist unzulaessig, weshalb das menu von vorne gestartet wird
                             {
                                 System.out.println("Leere eingabe unzulaessig.");
                                 continue menu;
                             }
                         break menu;
-                case "n":
-                case "N":	System.out.println("Wort wird ausgewaehlt...");
+                        
+                case "n":   // Im Fall von no lesen wir aus einer Datei zufaellig ein Wort ein
+                case "N":   System.out.println("Wort wird ausgewaehlt...");
                             word = getWordFromFile();
                         break menu;
+                // wurde etwas anderes als n oder y eingegeben, wiederholt sich das menu kommentarlos
                 }
 
-            }while(true);
+            }while(true);   // Ende der menu-Schleife
 
-            word = word.toUpperCase();
-            guessed = new char[word.length()];
-            for(int i = 0; i < guessed.length; i++)
+            word = word.toUpperCase();              // schreibe das zu ratende Wort in Großbuchstaben
+            guessed = new char[word.length()];      // initialisiere guessed mit der Laenge des zu ratenden Wortes
+            for(int i = 0; i < guessed.length; i++) // fuelle guessed mit '_'
             {
                 guessed[i] = '_';
             }
 
-            // get the Textures for the different states the hangman can have
-            hangmanTexture = initHangman();
+            hangmanTexture = initHangman();         // get the Textures for the different states the hangman can have
 
+            // dauerschleife um in-game Code
             loop: while(true)
             {
-                foundLetter = false;
-                String temp;
+                foundLetter = false;                // setze foundLetter vor jedem Durchgang false
+                String temp;                        // deklariere temporaeren String
                 System.out.print("bitte Buchstabe eingeben: ");
-                temp = in.nextLine().toUpperCase();
+                temp = in.nextLine().toUpperCase(); // lese Buchstabe oder ganzes Wort von Konsole ein und schreibe alles groß
 
-                if (temp.isEmpty()) continue loop;
+                if (temp.isEmpty()) continue loop;  // falls leere Eingabe, neuer durchlauf
                 
-                if (temp.length() > 1)
+                if (temp.length() > 1)              // falls das Wort mehr als ein Zeichen hat, handelt es sich um ein Wort, nicht einen Buchstaben
                 {
-                    if(temp.equals(word))
+                    if(temp.equals(word))           // Hat der Nutzer das Wort korrekt erraten?
                     {
                         System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
-                        break loop;
+                        break loop;                 // wenn ja, dann beende den in-game Kreislauf
                     }
                     
-                    trials--;
+                    trials--;                       // falls nicht, verringere die Anzahl der verbleibenden Versuche um 1 und gebe die dazugehoerige Textur aus
                     System.out.println(hangmanTexture[trials]);
                     
-                    if (trials <= 0)
+                    if (trials <= 0)                // Falls jetzt keine Versuche mehr verbleiben, gebe das gesuchte Wort aus
                     {
                         System.out.println("Das gesuchte Wort war: " + word);
-                        break loop;
+                        break loop;                 // und beende den in-game Kreislauf
                     }
                     
-                    continue loop;
+                    continue loop;                  // wenn wir ein Wort raten wollten, es falsch war und noch versuche uebrig sind, dann fange einen neuen durchlauf an
                     
                 }
                 
