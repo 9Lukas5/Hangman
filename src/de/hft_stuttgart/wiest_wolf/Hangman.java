@@ -146,6 +146,7 @@ public class Hangman
                 break;  // falls keine '_' mehr in guessed vorhanden waren, wurde das Wort vollstaendig erraten. Beende in-game Kreislauf
             }
             
+            // nach Ende des in-game
             System.out.print("\n\nwillst du nochmal spielen? (y/n): ");
             choice = in.nextLine();
             
@@ -153,14 +154,14 @@ public class Hangman
             {
                 case "y":
                 case "Y":   System.out.println("na dann, viel Spaß!");
-                            break;
+                            break;          // falls nochmal gespielt werden soll, verlasse den Switch-Case Block. Danach landet man durch die aeußerste Schleife wieder am Programmanfang
                             
                 case "n":
                 case "N":   System.out.println("auf wiedersehen, bis zum naechsten mal!");
-                            break init;
+                            break init;     // falls nicht....
                             
                 default :   System.out.println("Wir werten das jetzt mal als nein.");
-                            break init;
+                            break init;     //...oder falls nichts verstaendliches, beende die aeußerste Schleife, wodurch das Programm zu Ende ist.
                 
             }
         }
