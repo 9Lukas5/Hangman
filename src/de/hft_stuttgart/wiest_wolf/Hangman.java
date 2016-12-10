@@ -100,50 +100,50 @@ public class Hangman
                     
                     continue loop;                  // wenn wir ein Wort raten wollten, es falsch war und noch versuche uebrig sind, dann fange einen neuen durchlauf an
                     
-                }
+                } // Ende des Wort handling
                 
-                letter = temp.charAt(0);
+                letter = temp.charAt(0);            // der zu suchende Buchstabe ist der Buchstabe der Eingabe am Index 0 (erster Buchstabe)
 
                 if(checked.contains(letter))
-                {
+                { // pruefung ob der Buchstabe bereits in der LinkedList checked ist
                     System.out.print("Buchstabe bereits abgefragt.");
-                    continue loop;
+                    continue loop;                  // falls ja, beginne neuen Durchlauf
                 }
                 else
                 {
-                    checked.add(letter);
+                    checked.add(letter);            // andernfalls fuege in am Ende der Liste an
                 }
 
                 for(int i = 0; i < word.length(); i++)
-                {
+                { // fuer jeden Buchstabe des zu suchenden Wortes
                     if(letter == word.charAt(i))
-                    {
-                        foundLetter = true;
-                        guessed[i] = letter;
+                    { // pruefe ob der eingegebene uebereinstimmt
+                        foundLetter = true;         // falls ja, setzte foundLetter wahr
+                        guessed[i] = letter;        // und ersetze in guessed den '_' mit dem Buchstaben
                     }
 
-                    System.out.print(guessed[i]);
+                    System.out.print(guessed[i]);   // gebe in jedem Fall das Zeichen in guessed aus
                 }
-                System.out.println();
+                System.out.println();               // Abstand Zeile
 
                 if(!foundLetter)
-                {
-                    trials--;
+                { // werte aus ob ein Buchstabe gefunden wurde
+                    trials--;                       // falls nicht verringere Anzahl verbleibender Versuche um eins und gebe zugehoerige Textur aus
                     System.out.println(hangmanTexture[trials]);
                 }
                 if(trials <= 0)
-                {
+                { // falls keine versuche mehr verbleiben
                     System.out.println("Das gesuchte Wort war: " + word);
-                    break;
+                    break;                          // gebe gesuchtes Wort aus und beende in-game kreislauf
                 }
                 for(char i: guessed)
-                {
+                { // fuer jedes Zeichen von guessed
                     if(i == '_')
-                    {
-                        continue loop;
+                    { // falls noch '_' enthalten sind
+                        continue loop;              // starte neuen Durchlauf
                     }
                 }
-                break;
+                break;  // falls keine '_' mehr in guessed vorhanden waren, wurde das Wort vollstaendig erraten. Beende in-game Kreislauf
             }
             
             System.out.print("\n\nwillst du nochmal spielen? (y/n): ");
