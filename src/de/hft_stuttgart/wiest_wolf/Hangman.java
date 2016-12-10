@@ -46,11 +46,15 @@ public class Hangman
                 case "y":   // Im Fall von yes, wird ein eigenes Wort eingelesen, dass dann die anderen Raten muessen
                 case "Y":   System.out.print("bitte Wort eingeben: ");
                             word=in.nextLine();
+                            
                             if(word.isEmpty())  // eine leere Eingabe ist unzulaessig, weshalb das menu von vorne gestartet wird
                             {
                                 System.out.println("Leere eingabe unzulaessig.");
                                 continue menu;
                             }
+                            
+                            for (int i=0; i < 1000; i++) System.out.println();  // nach Eingabe des zu suchenden Wortes gebe einige Zeilen aus, damit die die suchen es nicht sehen.
+                            
                         break menu;
                         
                 case "n":   // Im Fall von no lesen wir aus einer Datei zufaellig ein Wort ein
