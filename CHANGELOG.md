@@ -12,3 +12,4 @@
     * #3 On loose you never knew what the word actually was. That's not very fair
     * #4 After the game you have the choice to replay the game
     * #5 If you enter a String not a single word, every character apart from letters are shown directly
+    *    Add illusion of a heavy search if a random word is choosen by introduce a one second sleep 3x
