@@ -20,7 +20,7 @@ public class Hangman
     // global variables
     public static Scanner in = new Scanner(System.in);
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         // dauerschleife um gesamtes main, da am Ende, falls nochmal gespielt werden soll, auch der Deklarationsblock nochmals durchlaufen werden muss
         init: while (true)
@@ -58,8 +58,16 @@ public class Hangman
                         break menu;
                         
                 case "n":   // Im Fall von no lesen wir aus einer Datei zufaellig ein Wort ein
-                case "N":   System.out.println("Wort wird ausgewaehlt...");
+                case "N":   System.out.print("Wort wird ausgewaehlt");
                             word = getWordFromFile();
+                            
+                            for (int i=0; i < 3; i++)   // drei Durchlaeufe
+                            {
+                                Thread.sleep(1000);     // eine Sekunde warten
+                                System.out.print(".");  // einen Punkt hinten anfuegen
+                            }
+                            System.out.println();       // danach in die naechste Zeile
+                            
                         break menu;
                 // wurde etwas anderes als n oder y eingegeben, wiederholt sich das menu kommentarlos
                 }
