@@ -1,3 +1,8 @@
+/**
+* Copyright (c) 2016 Lukas Wiest & Erik Wolf. All rights reserved.
+* 
+*/
+
 package de.hft_stuttgart.wiest_wolf;
 
 
