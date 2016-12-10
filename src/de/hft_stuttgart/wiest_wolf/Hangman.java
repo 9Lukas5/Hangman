@@ -68,8 +68,10 @@ public class Hangman
             {
                 if (Character.isLetter(word.charAt(i))) guessed[i] = '_';   // fuer Buchstaben werden Unterstriche eingefuegt
                 else guessed[i] = word.charAt(i);                           // fuer alles andere das entsprechende Zeichen aus dem zu suchenden String
+                System.out.print(guessed[i]);                               // gebe in jedem Fall das eben eingefuellte Zeichen aus.
             }
 
+            System.out.print("\n\n");               // zwei Leerzeilen als Abstand
             hangmanTexture = initHangman();         // get the Textures for the different states the hangman can have
 
             // dauerschleife um in-game Code
@@ -125,7 +127,7 @@ public class Hangman
 
                     System.out.print(guessed[i]);   // gebe in jedem Fall das Zeichen in guessed aus
                 }
-                System.out.println();               // Abstand Zeile
+                System.out.print("\n\n");           // zwei Leerzeilen als Abstand
 
                 if(!foundLetter)
                 { // werte aus ob ein Buchstabe gefunden wurde
