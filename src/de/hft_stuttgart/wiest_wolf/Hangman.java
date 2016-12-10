@@ -66,7 +66,8 @@ public class Hangman
             guessed = new char[word.length()];      // initialisiere guessed mit der Laenge des zu ratenden Wortes
             for(int i = 0; i < guessed.length; i++) // fuelle guessed mit '_'
             {
-                guessed[i] = '_';
+                if (Character.isLetter(word.charAt(i))) guessed[i] = '_';   // fuer Buchstaben werden Unterstriche eingefuegt
+                else guessed[i] = word.charAt(i);                           // fuer alles andere das entsprechende Zeichen aus dem zu suchenden String
             }
 
             hangmanTexture = initHangman();         // get the Textures for the different states the hangman can have
