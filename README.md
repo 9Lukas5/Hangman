@@ -25,3 +25,9 @@ You have two options to play:
 
 In game you can guess single letters or a whole word.  
 If the game ends, never mind if you won or failed, you have the option to replay or not.
+
+## values.conf
+You can replace (or create if it doesn't exist) the values.conf in the working dir from which you play  
+with an own one.  
+IMPORTANT: Each line get's interpreted as one String to choose from.  
+That means, you can also make complete sentences or similar.
