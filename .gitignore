@@ -2,8 +2,10 @@
 !.gitignore
 !/src
 !Hausaufgabe_8.pdf
-!Hangman_Flussdiagramm.pdf
 !Hangman.dia
+!Hangman_Flussdiagramm.svg
+!Hangman_Flussdiagramm.pdf
+!Hangman_Flussdiagramm_full.pdf
 !values.conf
 !CHANGELOG.md
 !README.md
