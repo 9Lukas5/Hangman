@@ -89,6 +89,19 @@ public class Hangman
             // dauerschleife um in-game Code
             loop: while(true)
             {
+                check: do
+                {
+                    for(char i: guessed)
+                    { // fuer jedes Zeichen von guessed
+                        if (i == '_')
+                        { // falls noch Buchstaben enthalten sind
+                            break check;              // starte neuen Durchlauf
+                        }
+                    }
+                    System.out.println("Du hast es erraten ;) das Wort ist:\n" + word);
+                    break loop;                     // falls keine '_' mehr in guessed vorhanden waren, wurde das Wort vollstaendig erraten. Beende in-game Kreislauf
+                } while (false);
+                
                 foundLetter = false;                // setze foundLetter vor jedem Durchgang false
                 String temp;                        // deklariere temporaeren String
                 System.out.print("bitte Buchstabe eingeben: ");
@@ -151,15 +164,8 @@ public class Hangman
                     System.out.println("Das gesuchte Wort war: " + word);
                     break;                          // gebe gesuchtes Wort aus und beende in-game kreislauf
                 }
-                for(char i: guessed)
-                { // fuer jedes Zeichen von guessed
-                    if(i == '_')
-                    { // falls noch '_' enthalten sind
-                        continue loop;              // starte neuen Durchlauf
-                    }
-                }
-                break;  // falls keine '_' mehr in guessed vorhanden waren, wurde das Wort vollstaendig erraten. Beende in-game Kreislauf
-            }
+                
+            } // end of marker loop
             
             // nach Ende des in-game
             System.out.print("\n\nwillst du nochmal spielen? (y/n): ");
@@ -179,7 +185,7 @@ public class Hangman
                             break init;     //...oder falls nichts verstaendliches, beende die aeußerste Schleife, wodurch das Programm zu Ende ist.
                 
             }
-        }
+        } // end of marker init
     }
     
     public static int randInt(int min, int max)
