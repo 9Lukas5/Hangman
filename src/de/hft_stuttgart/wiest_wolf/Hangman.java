@@ -74,6 +74,13 @@ public class Hangman
 
             }while(true);   // Ende der menu-Schleife
 
+            if (word.contains("_"))
+            {
+                System.out.println("Unterstriche im zu findenden Wort sind unzulaessig!!");
+                System.out.print("\n\n");
+                continue init;
+            }
+            
             word = word.toUpperCase();              // schreibe das zu ratende Wort in Großbuchstaben
             guessed = new char[word.length()];      // initialisiere guessed mit der Laenge des zu ratenden Wortes
             for(int i = 0; i < guessed.length; i++) // fuelle guessed mit '_'
