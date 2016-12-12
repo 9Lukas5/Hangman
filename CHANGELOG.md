@@ -1,3 +1,8 @@
+### v1.1.1
+* Bug Fixes:
+    * #8 the program won't allow Strings with underscores now, as they would catch you into a
+	     endless loop.
+
 ### v1.1.0
 * Bug Fixes:
     * #1 On program start the user can decide to use a own word or a random one from file.  
